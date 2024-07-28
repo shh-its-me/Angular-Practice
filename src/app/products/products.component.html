@@ -1,0 +1,51 @@
+<!-- Two way data binding -->
+<!-- <div class="container" style="margin-top: 20px"> -->
+<!-- Using ngmodel attribute -->
+<!-- <input class="form-control" type="text" name="product-name" id="" style="border: 1px solid #000;"
+        placeholder="Search Here" [(ngModel)]="search"> -->
+
+<!-- Using event attribute -->
+<!-- <input class="form-control" 
+    type="text" name="product-name" id="" 
+    style="border: 1px solid #000;" placeholder="Search Here"
+    (input)="onSearch($event)"> -->
+<!-- </div> -->
+<div>
+    <input type="text" placeholder="search" [(ngModel)]="search" class="form-control" style="border: 1px solid black;">
+</div>
+<p>{{search}}</p>
+<div class="product-container " [ngStyle]="{display: 'flex', flexWrap:'wrap', justifyContent:'center', gap:'15px'}">
+    <!-- <div *ngIf="checkAvailable()">
+        <p>No products available.</p>
+    </div> -->
+    <!-- <div class="card shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;"
+        *ngFor="let product of productList"> -->
+    <!-- Search-product pipe -->
+    <div class="card shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;"
+        *ngFor="let product of allProducts ">
+        <!-- Custom-pipe -->
+        <!-- <div class="card shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;"
+        *ngFor="let product of productList | customPipe: 100000"> -->
+        <img [src]=product.productImage class="card-img-top" alt="...">
+        <div class="card-body">
+            <!-- Pre-defined Pipes -->
+            <!-- <h5 class="card-title">{{product['productName']}}</h5> -->
+            <!-- <h5 class="card-title">{{product['productName'] | slice:0:5}}</h5> -->
+            <!-- {{product | json}} -->
+            <!-- <h5 class="card-title">{{product['productName'] | uppercase}}</h5>
+            <h5 class="card-title">{{product['productName'] | lowercase}}</h5> -->
+            <h5 class="card-title">{{product['productName'] | titlecase}}</h5>
+            <p class="card-text">{{product.productDescription}}</p>
+            <!-- Pre-defined currency pipe -->
+            <p class="card-text" [ngClass]="{costly:product.productPrice>=100000}"><strong>{{product.productPrice |
+                    currency:'INR'}}</strong></p>
+            <!-- <p class="card-text" [ngClass]="{costly:product.productPrice>=100000}">{{product.productPrice}}</p> -->
+            <a href="#" class="btn btn-primary">Book Now</a>
+        </div>
+    </div>
+</div>
+<style>
+    .costly {
+        color: red;
+    }
+</style>

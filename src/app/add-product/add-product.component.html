@@ -1,0 +1,41 @@
+<p class="d-inline-flex gap-1">
+    <!-- <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+        aria-controls="collapseExample">
+        Link with href
+    </a> -->
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+        aria-expanded="false" aria-controls="collapseExample">
+        Add Product
+    </button>
+</p>
+<div class="collapse m-3 p-3 border border-primary-subtle" id="collapseExample">
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Product Name</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter product name"
+            [(ngModel)]="newProduct.productName">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Product Description</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter product description"
+            [(ngModel)]="newProduct.productDescription">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Product Category</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter product category"
+            [(ngModel)]="newProduct.productCategory">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Product Price</label>
+        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Enter product price"
+            [(ngModel)]="newProduct.productPrice">
+    </div>
+    <!-- <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Enter image link" aria-label="Image Link">
+        </div>
+    </div> -->
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" (click)="addNewProduct()">Submit</button>
+    </div>
+    {{newProduct | json}}
+</div>
